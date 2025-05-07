@@ -1,53 +1,109 @@
-<div class="conatainer mt-4">
-    <div class="row">
-      <div class="col-md-5">
-        <div class="card">
-            <div class="card-body">
-                <form  #userForm="ngForm" (ngSubmit)="onSubmit()">
-                    <div class="form-group">
-                        <label for="username">User Name</label>
-                        <input type="text" class="form-control" id="username" name="username" ngModel #username="ngModel">
-                    </div>
-                    <div class="form-group">
-                        <label for="contact">Contact</label>
-                        <input type="text" class="form-control" id="contact" name="contact" ngModel #contact="ngModel" >
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" class="form-control" id="email" name="email" ngModel #email="ngModel" >
-                    </div>
-                    <div class="form-group">
-                        <label for="secretQuesstion">Secret Quesstion</label>
-                        <select name="secretQuesstion" ngModel #secretQuesstion="ngModel" id="secretQuesstion" class="form-control" >
-                            <option value="food">What's Your Favourite Food</option>
-                            <option value="book">What's Your Favourite BooK</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="answer">Answer</label>
-                        <textarea class="form-control" name="answer" ngModel #answer="ngModel" id="answer" rows="1"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="isSubscribed">
-                            <input type="checkbox" name="checkbox" ngModel #checkbox="ngModel" class="mr-1">Check for daily notification's
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label for="radioPhone" class="mr-5">
-                            <input type="radio" name="radioPhone" ngModel #radioPhone="ngModel" id="radioPhone" class="mr-1" value="true">
-                            Phone</label>
-                        <label for="radioEmail">
-                            <input type="radio" name="radioEmail" ngModel #radioEmail="ngModel" id="radioEmail" class="mr-1" value="true">
-                            Email</label>
-                    </div>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="username">User Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              name="username"
+              ngModel
+              #username="ngModel"
+            />
+          </div>
+          <div class="form-group">
+            <label for="contact">Contact</label>
+            <input
+              type="text"
+              class="form-control"
+              id="contact"
+              name="contact"
+              ngModel
+              #contact="ngModel"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              name="email"
+              ngModel
+              #email="ngModel"
+            />
+          </div>
+          <div class="form-group">
+            <label for="secretQuesstion">Secret Quesstion</label>
+            <select
+              name="secretQuesstion"
+              ngModel
+              #secretQuesstion="ngModel"
+              id="secretQuesstion"
+              class="form-control"
+            >
+              <option value="food">What's Your Favourite Food</option>
+              <option value="book">What's Your Favourite BooK</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="answer">Answer</label>
+            <textarea
+              class="form-control"
+              name="answer"
+              ngModel
+              #answer="ngModel"
+              id="answer"
+              rows="1"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="isSubscribed">
+              <input
+                type="checkbox"
+                name="checkbox"
+                ngModel
+                #checkbox="ngModel"
+                class="mr-1"
+              />Check for daily notification's
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="radioPhone" class="mr-5">
+              <input
+                type="radio"
+                name="modeOfContact"
+                ngModel
+                #radioPhone="ngModel"
+                id="radioPhone"
+                class="mr-1"
+                value="phone"
+              />
+              Phone</label
+            >
+            <label for="radioEmail">
+              <input
+                type="radio"
+                name="modeOfContact"
+                ngModel
+                #radioEmail="ngModel"
+                id="radioEmail"
+                class="mr-1"
+                value="email"
+              />
+              Email</label
+            >
+          </div>
 
-                    <button class="btn btn-block btn-outline-info">submit</button>
-            </form>
-            </div>
-        </div>
-      </div>
-      <div class="col md-5">
-        <app-td-form-list></app-td-form-list>
+          <button class="btn btn-block btn-outline-info">submit</button>
+        </form>
       </div>
     </div>
   </div>
+  <div class="col md-8">
+    <app-td-form-list></app-td-form-list>
+  </div>
+</div>

@@ -1,25 +1,29 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-5">
-            <table class="table table-bordered">
-                <tr>
-                    <th>Sl No</th>
-                    <th>User Name</th>
-                    <th>Email</th>
-                    <th>Answer</th>
-                    <th>Notification</th>
-                    <th>Contact type</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>John</td>
-                    <td>johnDoegmail.com</td>
-                    <td>book</td>
-                    <td>yes</td>
-                    <td>Phone</td>
-                </tr>
-                
-            </table>
-        </div>
+<div class="row" *ngIf="userData.length > 0; else nodata">
+  <div class="col-md-12">
+    <div class="div table-responsive">
+      <table class="table table-bordered">
+        <tr>
+          <th>Sl No</th>
+          <th>User Name</th>
+          <th>Contact</th>
+          <th>Email</th>
+          <th>Answer</th>
+          <th>Notification</th>
+          <th>Contact type</th>
+        </tr>
+        <tr *ngFor="let user of userData; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.contact }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.answer }}</td>
+          <td>{{ user.checkbox }}</td>
+          <td>{{ user.modeOfContact }}</td>
+        </tr>
+      </table>
     </div>
+  </div>
 </div>
+<ng-template #nodata>
+  <p class="alert alert-danger">No User Data</p>
+</ng-template>

@@ -1,5 +1,8 @@
 import { Component, NgModule, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { FormUsersService } from '../../services/form-users.service';
+import { Iusers } from '../../model/users';
+import { UuidService } from '../../services/uuid.service';
 
 @Component({
   selector: 'app-td-form',
@@ -8,15 +11,26 @@ import { NgForm } from '@angular/forms';
 })
 export class TdFormComponent implements OnInit {
   @ViewChild('userForm')userForm !:NgForm
-  userFormArray !: Array<any>
-  constructor() { }
+  userFormArray : Array<Iusers> =[]
+
+  constructor(
+    private _usersService : FormUsersService,
+    private _uuidService : UuidService
+  ) { }
 
   ngOnInit(): void {
+
   }
+  
   onSubmit(){
-    // this.userForm.value
-    console.log(this.userForm.value);
-    
+    if(this.userForm.valid){
+      let newUser :Iusers = {
+        ...this.userForm.value,
+        id : this._uuidService.generateUuid()
+      };
+      this.userForm.reset()
+      this._usersService.addNewUsers(newUser)
+    }
   }
 
 }
